@@ -1,0 +1,38 @@
+[
+  {
+    "id": "doc_001",
+    "filename": "Sicherheitskonzept_v4.pdf",
+    "title": "Sicherheitskonzept Infrastruktur 2026",
+    "date": "2026-01-15",
+    "type": "PDF",
+    "size": "2.4 MB",
+    "summary": "Detaillierte Analyse der physischen und digitalen Sicherheitsbarrieren für das Rechenzentrum Nord."
+  },
+  {
+    "id": "doc_002",
+    "filename": "Personalprotokoll_Q4.txt",
+    "title": "Personalprotokoll Q4/2025",
+    "date": "2025-12-20",
+    "type": "TXT",
+    "size": "14 KB",
+    "summary": "Internes Protokoll der Personalabteilung bezüglich Neuzugängen und Freigaben."
+  },
+  {
+    "id": "doc_003",
+    "filename": "Netzwerkplan_Segment_C.pdf",
+    "title": "Netzwerksegmentierung Plan C",
+    "date": "2026-01-10",
+    "type": "PDF",
+    "size": "1.8 MB",
+    "summary": "Topologie-Übersicht für die isolierte Testumgebung."
+  },
+  {
+    "id": "doc_004",
+    "filename": "Notfallkontaktliste.md",
+    "title": "Notfallkontaktliste (Intern)",
+    "date": "2026-01-02",
+    "type": "MD",
+    "size": "4 KB",
+    "summary": "Kontaktinformationen für Level-1 und Level-2 Incidents."
+  }
+]

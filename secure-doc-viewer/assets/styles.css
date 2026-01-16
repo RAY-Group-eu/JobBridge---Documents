@@ -1,0 +1,405 @@
+/* 
+  GOV-TECH DESIGN SYSTEM 
+  Focus: Reliability, Readability, Authority.
+  No Gradients. High Contrast. System Fonts.
+*/
+
+:root {
+  /* Colors - Strict & Neutral */
+  --bg-body: #F7F7F7;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F0F0F0;
+  
+  --text-main: #111111;
+  --text-muted: #555555;
+  --text-faint: #999999;
+  
+  --border-light: #E5E5E5;
+  --border-strong: #333333;
+  
+  --brand-color: #002B36; /* Deep Navy - trusted, authoritative */
+  --focus-ring: #0050FF;
+  --error-color: #D32F2F;
+  --success-color: #2E7D32;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 64px;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+  
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-loose: 1.7;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+.hidden { display: none !important; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Layout Containers */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LOGIN SCREEN */
+#login-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.login-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02); /* Very subtle shadow */
+}
+
+.login-header {
+  margin-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--text-main);
+  padding-bottom: var(--space-sm);
+}
+
+.login-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.login-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono); /* Passwords in mono look more secure */
+  font-size: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  background: var(--bg-surface);
+  color: var(--text-main);
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--focus-ring);
+  box-shadow: 0 0 0 2px rgba(0,80,255, 0.1);
+}
+
+.password-toggle {
+  position: absolute;
+  right: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.password-toggle:hover {
+  color: var(--text-main);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--text-main); /* Black/Dark Button */
+  color: #FFF;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 2px;
+}
+
+.btn-primary:not(:disabled):hover {
+  background-color: #333;
+}
+
+.btn-primary:disabled {
+  background-color: #CCC;
+  cursor: not-allowed;
+}
+
+.feedback-area {
+  min-height: 20px;
+  margin-top: var(--space-sm);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.error-text { color: var(--error-color); }
+.warn-caps { color: var(--brand-color); display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: 500; }
+
+/* HEADER */
+.site-header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: var(--space-md) 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.brand-badge {
+  background: var(--text-main);
+  color: #FFF;
+  font-size: 0.625rem;
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  border-color: var(--text-main);
+}
+
+/* DOCUMENT LIST (PORTAL) */
+.portal-controls {
+  margin: var(--space-xl) 0 var(--space-lg) 0;
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: var(--space-sm);
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  min-width: 250px;
+}
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.doc-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  padding: var(--space-md);
+  transition: box-shadow 0.2s, border-color 0.2s;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-card:hover {
+  border-color: var(--text-main);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Slight lift */
+}
+
+.doc-meta-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.doc-type-badge {
+  border: 1px solid var(--border-light);
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.doc-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1.4;
+}
+
+.doc-summary {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+  flex-grow: 1;
+}
+
+.doc-footer {
+  border-top: 1px solid var(--border-light);
+  padding-top: var(--space-sm);
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* VIEWER */
+.viewer-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: calc(100vh - 80px); /* Approx header height */
+  gap: var(--space-md);
+}
+
+.viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: var(--space-md);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.back-btn:hover { color: var(--text-main); }
+
+.viewer-frame-container {
+  background: #EAEAEA;
+  border: 1px solid var(--border-light);
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+iframe.doc-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+.text-viewer {
+  background: #FFF;
+  padding: var(--space-xl);
+  height: 100%;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  color: #333;
+}
+
+/* STATE CLASSES */
+.is-locked { pointer-events: none; opacity: 0.5; }
+.shake { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
