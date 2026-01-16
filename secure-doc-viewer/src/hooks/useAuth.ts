@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 
-// Hardcoded hash for "secret123"
-// Generated via: crypto.subtle.digest('SHA-256', new TextEncoder().encode('secret123'))
-// Then converted to hex.
-// Hash: 2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b
+// Hardcoded hash for "83015" (Random 5-digit)
+// Generated via: crypto.subtle.digest('SHA-256', new TextEncoder().encode('83015'))
+// Hash: c50d03e7acc980c5b91efc7ccce14b95f59b50d383c58b1712bf614813e3a4cf
 
-const CORRECT_HASH = "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b";
+const CORRECT_HASH = "c50d03e7acc980c5b91efc7ccce14b95f59b50d383c58b1712bf614813e3a4cf";
 const MAX_ATTEMPTS = 5;
 const LOCKOUT_TIME = 30 * 1000; // 30 seconds
 

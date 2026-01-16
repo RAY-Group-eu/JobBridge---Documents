@@ -106,9 +106,7 @@ export default function LockScreen({ onLogin, attempts: _attempts, lockoutUntil 
                     </p>
                 )}
 
-                <div className="lock-footer">
-                    Secured by SHA-256 Encryption
-                </div>
+
             </div>
         </div>
     );
