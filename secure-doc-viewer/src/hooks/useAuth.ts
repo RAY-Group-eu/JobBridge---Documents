@@ -9,16 +9,16 @@ const MAX_ATTEMPTS = 5;
 const LOCKOUT_TIME = 30 * 1000; // 30 seconds
 
 export const useAuth = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true); // TEMPORARY: Bypass password check
     const [attempts, setAttempts] = useState<number>(0);
     const [lockoutUntil, setLockoutUntil] = useState<number | null>(null);
 
     useEffect(() => {
         // Check session logic
-        const session = sessionStorage.getItem('auth_token');
-        if (session === CORRECT_HASH) {
-            setIsAuthenticated(true);
-        }
+        // const session = sessionStorage.getItem('auth_token');
+        // if (session === CORRECT_HASH) {
+        //     setIsAuthenticated(true);
+        // }
 
         // Check rate limit logic
         const storedAttempts = localStorage.getItem('auth_attempts');
